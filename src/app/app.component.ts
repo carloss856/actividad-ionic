@@ -38,7 +38,10 @@ export class AppComponent {
   }
 
   private applyTheme(): void {
+    // Aplico la clase tanto en html como en body porque Ionic usa variables globales y asi el cambio se refleja mejor.
+    document.documentElement.classList.toggle('dark', this.darkMode);
     document.body.classList.toggle('dark', this.darkMode);
+    document.documentElement.style.colorScheme = this.darkMode ? 'dark' : 'light';
     localStorage.setItem('darkMode', String(this.darkMode));
   }
 }

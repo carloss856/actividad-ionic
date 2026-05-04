@@ -17,12 +17,20 @@ Esta aplicacion fue desarrollada con Ionic Framework y Angular. El proyecto pres
 - Menu lateral para navegar entre las tres opciones.
 - Interruptor para cambiar entre tema claro y oscuro.
 - Fondos con color en lugar de pantallas blancas.
+- Estilo visual adaptado para verse bien tanto en escritorio como en movil.
+
+## Revision realizada
+
+- Se verifico la compilacion del proyecto con `npm run build`.
+- Se corrigio el comportamiento del tema para que el cambio claro/oscuro afecte realmente la interfaz.
+- Se reubico el interruptor del tema en la parte inferior del menu lateral.
+- Se mantuvo un archivo `.txt` local con observaciones personales del desarrollo.
 
 ## Como ejecutar la aplicacion
 
 1. Instalar las dependencias con `npm install`.
 2. Iniciar el servidor de desarrollo con `ionic serve` o `npm start`.
-3. Abrir en el navegador la direccion que indique la terminal, normalmente `http://localhost:4200`.
+3. Abrir en el navegador la direccion que indique la terminal, normalmente `http://localhost:8100` cuando se usa `ionic serve`.
 
 ## Nota sobre la documentacion
 

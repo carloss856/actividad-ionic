@@ -2,6 +2,12 @@ ion-menu ion-content.menu-content {
   --background: linear-gradient(180deg, #e0f2fe 0%, #dbeafe 100%);
 }
 
+.menu-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 ion-list#main-menu-list {
   padding: 24px 12px 12px;
   background: transparent;
@@ -43,7 +49,7 @@ ion-item.selected {
 }
 
 .theme-toggle {
-  margin: 18px 12px;
+  margin: auto 12px 18px;
 }
 
 body.dark ion-menu ion-content.menu-content {

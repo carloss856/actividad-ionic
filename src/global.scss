@@ -33,9 +33,9 @@
  */
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.class.css";
 
-body {
+:root {
   --ion-background-color: #e0f2fe;
   --ion-text-color: #16324a;
   --ion-color-primary: #2563eb;
@@ -43,9 +43,10 @@ body {
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-shade: #2158cf;
   --ion-color-primary-tint: #3b74ed;
+  color-scheme: light;
 }
 
-body.dark {
+:root.dark {
   --ion-background-color: #0f172a;
   --ion-text-color: #e5eef8;
   --ion-color-primary: #60a5fa;
@@ -53,4 +54,5 @@ body.dark {
   --ion-color-primary-contrast: #0f172a;
   --ion-color-primary-shade: #548fdc;
   --ion-color-primary-tint: #70aefd;
+  color-scheme: dark;
 }
