@@ -52,22 +52,22 @@ ion-item.selected {
   margin: auto 12px 18px;
 }
 
-body.dark ion-menu ion-content.menu-content {
+:host-context(.dark) ion-menu ion-content.menu-content {
   --background: linear-gradient(180deg, #10253b 0%, #1d3557 100%);
 }
 
-body.dark ion-list-header,
-body.dark ion-note,
-body.dark ion-item,
-body.dark ion-item ion-icon {
+:host-context(.dark) ion-list-header,
+:host-context(.dark) ion-note,
+:host-context(.dark) ion-item,
+:host-context(.dark) ion-item ion-icon {
   color: #eaf4ff;
 }
 
-body.dark ion-item {
+:host-context(.dark) ion-item {
   --background: rgba(255, 255, 255, 0.08);
   --color: #eaf4ff;
 }
 
-body.dark ion-item.selected {
+:host-context(.dark) ion-item.selected {
   --background: rgba(255, 255, 255, 0.16);
 }

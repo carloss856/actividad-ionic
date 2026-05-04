@@ -63,6 +63,12 @@ ion-menu-button {
   background: transparent;
 }
 
+.swap-button {
+  margin: 18px 0 16px;
+  --background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+  --color: #ffffff;
+}
+
 .info-card ion-item {
   --background: rgba(191, 219, 254, 0.45);
   --color: #1e3a8a;
@@ -74,44 +80,49 @@ ion-menu-button {
   color: #2563eb;
 }
 
-body.dark ion-menu-button {
+:host-context(.dark) ion-menu-button {
   color: #e5eef8;
 }
 
-body.dark .page-toolbar {
+:host-context(.dark) .page-toolbar {
   --background: rgba(15, 23, 42, 0.94);
   --color: #e5eef8;
 }
 
-body.dark .page-content {
+:host-context(.dark) .page-content {
   --background: linear-gradient(180deg, #312e81 0%, #0f172a 100%);
 }
 
-body.dark .section-tag {
+:host-context(.dark) .section-tag {
   color: #fbbf24;
 }
 
-body.dark .hero-section h1,
-body.dark .section-description,
-body.dark .info-card ion-card-title,
-body.dark .info-card p {
+:host-context(.dark) .hero-section h1,
+:host-context(.dark) .section-description,
+:host-context(.dark) .info-card ion-card-title,
+:host-context(.dark) .info-card p {
   color: #e5eef8;
 }
 
-body.dark .info-card {
+:host-context(.dark) .info-card {
   background: rgba(15, 23, 42, 0.72);
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
 }
 
-body.dark .info-card ion-card-subtitle {
+:host-context(.dark) .info-card ion-card-subtitle {
   color: #fbbf24;
 }
 
-body.dark .info-card ion-item {
+:host-context(.dark) .info-card ion-item {
   --background: rgba(59, 130, 246, 0.18);
   --color: #dbeafe;
 }
 
-body.dark .info-card ion-icon {
+:host-context(.dark) .info-card ion-icon {
   color: #93c5fd;
+}
+
+:host-context(.dark) .swap-button {
+  --background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 100%);
+  --color: #0f172a;
 }

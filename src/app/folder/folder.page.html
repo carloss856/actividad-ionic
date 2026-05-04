@@ -28,6 +28,12 @@
     <ion-card-content>
       <p>{{ pageContent.highlight }}</p>
 
+      @if (canToggleData()) {
+        <ion-button expand="block" class="swap-button" (click)="toggleDisplayedData()">
+          {{ showingAlternativeData ? 'Ver datos principales' : 'Cambiar datos mostrados' }}
+        </ion-button>
+      }
+
       <ion-list lines="none">
         @for (item of pageContent.items; track item) {
           <ion-item>
