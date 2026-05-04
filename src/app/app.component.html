@@ -1,0 +1,28 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content class="menu-content">
+        <ion-list id="main-menu-list">
+          <ion-list-header>Actividad de Ionic</ion-list-header>
+          <ion-note>Aplicacion con Angular, tema y tres vistas.</ion-note>
+
+          @for (p of appPages; track p; let i = $index) {
+            <ion-menu-toggle auto-hide="false">
+              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+                <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                <ion-label>{{ p.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          }
+        </ion-list>
+
+        <ion-item lines="none" class="theme-toggle">
+          <ion-icon aria-hidden="true" slot="start" [ios]="darkMode ? 'moon-outline' : 'sunny-outline'" [md]="darkMode ? 'moon-sharp' : 'sunny-sharp'"></ion-icon>
+          <ion-label>Tema oscuro</ion-label>
+          <ion-toggle slot="end" [checked]="darkMode" (ionChange)="toggleDarkMode($event)"></ion-toggle>
+        </ion-item>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
