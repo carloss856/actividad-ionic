@@ -64,9 +64,10 @@ ion-menu-button {
 }
 
 .swap-button {
-  margin: 18px 0 16px;
+  margin-top: 14px;
   --background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
   --color: #ffffff;
+  --border-radius: 999px;
 }
 
 .info-card ion-item {

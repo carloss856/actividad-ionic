@@ -56,8 +56,8 @@ export class FolderPage implements OnInit {
       secondary: {
         title: 'Informacion personal',
         subtitle: 'Datos alternativos del estudiante',
-        description: 'Con este boton puedo demostrar que la informacion de la pantalla se actualiza sin cambiar de pagina, algo util cuando se quiere mostrar otra version o mas detalles.',
-        highlight: 'Esta segunda vista interna presenta datos complementarios del mismo perfil.',
+        description: 'Esta vista muestra una segunda version de los datos personales del estudiante.',
+        highlight: 'Datos complementarios del mismo perfil.',
         items: [
           'Semestre: 6.',
           'Fortaleza: desarrollo de interfaces y logica.',
@@ -80,8 +80,8 @@ export class FolderPage implements OnInit {
       secondary: {
         title: 'Contacto',
         subtitle: 'Otros medios de contacto',
-        description: 'En esta segunda opcion se muestran otros datos para comprobar que el boton de cambio de informacion si modifica el contenido visible en pantalla.',
-        highlight: 'La interfaz puede presentar un bloque adicional sin salir de la pagina actual.',
+        description: 'Esta vista muestra otros medios de contacto del estudiante.',
+        highlight: 'Informacion adicional de contacto.',
         items: [
           'Telegram: @estudiante_ionic',
           'Horario sugerido: 8:00 AM a 5:00 PM.',
@@ -110,7 +110,6 @@ export class FolderPage implements OnInit {
       return;
     }
 
-    // Aqui alterno entre dos bloques de informacion para que el usuario vea el cambio sin recargar la ruta.
     this.showingAlternativeData = !this.showingAlternativeData;
     this.updatePageContent();
   }
