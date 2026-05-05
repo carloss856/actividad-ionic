@@ -32,8 +32,8 @@ export class FolderPage implements OnInit {
       primary: {
         title: 'Inicio',
         subtitle: 'Bienvenido a mi aplicacion en Ionic',
-        description: 'Esta pagina funciona como una presentacion general. Desde aqui se entiende que la aplicacion tiene una navegacion sencilla, agradable a la vista y adaptada a tema claro u oscuro.',
-        highlight: 'La idea principal es reunir informacion basica del estudiante en una interfaz ordenada.',
+        description: 'Navegacion principal de la aplicacion.',
+        highlight: 'Secciones disponibles:',
         items: [
           'Menu lateral con acceso a las tres secciones.',
           'Diseno con fondos de color para evitar una vista plana.',
@@ -45,8 +45,8 @@ export class FolderPage implements OnInit {
       primary: {
         title: 'Informacion personal',
         subtitle: 'Resumen del estudiante',
-        description: 'En esta vista se coloca la informacion personal mas importante del estudiante. El contenido se puede adaptar facilmente si luego se quiere agregar mas datos academicos o personales.',
-        highlight: 'El objetivo de esta seccion es presentar la identidad del estudiante de manera clara.',
+        description: 'Datos principales del estudiante.',
+        highlight: 'Informacion actual:',
         items: [
           'Nombre: Carlos Subero.',
           'Carrera: area de tecnologia y programacion.',
@@ -56,8 +56,8 @@ export class FolderPage implements OnInit {
       secondary: {
         title: 'Informacion personal',
         subtitle: 'Datos alternativos del estudiante',
-        description: 'Esta vista muestra una segunda version de los datos personales del estudiante.',
-        highlight: 'Datos complementarios del mismo perfil.',
+        description: 'Datos complementarios.',
+        highlight: 'Informacion adicional:',
         items: [
           'Semestre: 6.',
           'Fortaleza: desarrollo de interfaces y logica.',
@@ -69,8 +69,8 @@ export class FolderPage implements OnInit {
       primary: {
         title: 'Contacto',
         subtitle: 'Canales para comunicarse',
-        description: 'Esta pagina concentra medios de contacto simulados para completar la practica. La informacion se muestra en formato de lista para que sea rapida de leer.',
-        highlight: 'Aqui se demuestra una vista orientada a datos practicos y de acceso rapido.',
+        description: 'Medios principales de contacto.',
+        highlight: 'Datos de contacto:',
         items: [
           'Correo: estudiante@ejemplo.com',
           'Telefono: +58 412-000-0000',
@@ -80,8 +80,8 @@ export class FolderPage implements OnInit {
       secondary: {
         title: 'Contacto',
         subtitle: 'Otros medios de contacto',
-        description: 'Esta vista muestra otros medios de contacto del estudiante.',
-        highlight: 'Informacion adicional de contacto.',
+        description: 'Otros datos de contacto.',
+        highlight: 'Contacto adicional:',
         items: [
           'Telegram: @estudiante_ionic',
           'Horario sugerido: 8:00 AM a 5:00 PM.',
