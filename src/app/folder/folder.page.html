@@ -4,10 +4,22 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>{{ pageContent.title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="copyContent()" title="Copiar contenido">
+        <ion-icon slot="icon-only" name="copy-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="shareContent()" title="Compartir contenido">
+        <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="page-content">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-header collapse="condense">
     <ion-toolbar class="page-toolbar">
       <ion-title size="large">{{ pageContent.title }}</ion-title>
@@ -18,6 +30,17 @@
     <p class="section-tag">Aplicacion Ionic Angular</p>
     <h1>{{ pageContent.subtitle }}</h1>
     <p class="section-description">{{ pageContent.description }}</p>
+
+    <div class="meta-row">
+      <ion-chip class="meta-chip">
+        <ion-icon name="time-outline"></ion-icon>
+        <ion-label>{{ now | date: 'EEEE d MMM, HH:mm:ss' }}</ion-label>
+      </ion-chip>
+      <ion-chip class="meta-chip">
+        <ion-icon name="eye-outline"></ion-icon>
+        <ion-label>Visitas: {{ visitCount }}</ion-label>
+      </ion-chip>
+    </div>
   </section>
 
   <ion-card class="info-card">
@@ -28,11 +51,35 @@
     <ion-card-content>
       <p>{{ pageContent.highlight }}</p>
 
+      <ion-searchbar
+        class="content-search"
+        placeholder="Buscar en esta seccion"
+        [(ngModel)]="searchTerm"
+        debounce="150">
+      </ion-searchbar>
+
       <ion-list lines="none">
-        @for (item of pageContent.items; track item) {
+        @for (item of filteredItems; track item) {
           <ion-item>
             <ion-icon slot="start" name="checkmark-circle"></ion-icon>
             <ion-label>{{ item }}</ion-label>
+            <ion-button
+              fill="clear"
+              slot="end"
+              class="fav-button"
+              (click)="toggleFavorite(item)"
+              [title]="isFavorite(item) ? 'Quitar de favoritos' : 'Agregar a favoritos'">
+              <ion-icon
+                slot="icon-only"
+                [name]="isFavorite(item) ? 'star' : 'star-outline'">
+              </ion-icon>
+            </ion-button>
+          </ion-item>
+        }
+        @empty {
+          <ion-item class="empty-item">
+            <ion-icon slot="start" name="search-outline"></ion-icon>
+            <ion-label>No hay resultados para "{{ searchTerm }}".</ion-label>
           </ion-item>
         }
       </ion-list>
@@ -44,4 +91,91 @@
       }
     </ion-card-content>
   </ion-card>
+
+  @if (folder === 'contacto') {
+    <ion-card class="contact-card">
+      <ion-card-header>
+        <ion-card-title>Formulario de contacto</ion-card-title>
+        <ion-card-subtitle>Enviame un mensaje</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="contactForm" (ngSubmit)="submitContactForm()">
+          <ion-item lines="none" class="field-item">
+            <ion-input
+              label="Nombre"
+              labelPlacement="floating"
+              type="text"
+              formControlName="nombre"
+              placeholder="Tu nombre completo">
+            </ion-input>
+          </ion-item>
+          @if (hasError('nombre', 'required')) {
+            <p class="field-error">El nombre es obligatorio.</p>
+          }
+          @if (hasError('nombre', 'minlength')) {
+            <p class="field-error">El nombre debe tener al menos 3 caracteres.</p>
+          }
+
+          <ion-item lines="none" class="field-item">
+            <ion-input
+              label="Correo"
+              labelPlacement="floating"
+              type="email"
+              formControlName="correo"
+              placeholder="ejemplo@correo.com">
+            </ion-input>
+          </ion-item>
+          @if (hasError('correo', 'required')) {
+            <p class="field-error">El correo es obligatorio.</p>
+          }
+          @if (hasError('correo', 'email')) {
+            <p class="field-error">Escribe un correo valido.</p>
+          }
+
+          <ion-item lines="none" class="field-item">
+            <ion-input
+              label="Asunto"
+              labelPlacement="floating"
+              type="text"
+              formControlName="asunto"
+              placeholder="Motivo del mensaje">
+            </ion-input>
+          </ion-item>
+          @if (hasError('asunto', 'required')) {
+            <p class="field-error">El asunto es obligatorio.</p>
+          }
+
+          <ion-item lines="none" class="field-item">
+            <ion-textarea
+              label="Mensaje"
+              labelPlacement="floating"
+              [autoGrow]="true"
+              formControlName="mensaje"
+              placeholder="Escribe tu mensaje aqui">
+            </ion-textarea>
+          </ion-item>
+          @if (hasError('mensaje', 'required')) {
+            <p class="field-error">El mensaje es obligatorio.</p>
+          }
+          @if (hasError('mensaje', 'minlength')) {
+            <p class="field-error">El mensaje debe tener al menos 10 caracteres.</p>
+          }
+
+          <ion-button expand="block" type="submit" class="send-button">
+            Enviar mensaje
+          </ion-button>
+        </form>
+
+        @if (lastMessage) {
+          <div class="form-result">
+            <h3>Mensaje recibido</h3>
+            <p><strong>Nombre:</strong> {{ lastMessage.nombre }}</p>
+            <p><strong>Correo:</strong> {{ lastMessage.correo }}</p>
+            <p><strong>Asunto:</strong> {{ lastMessage.asunto }}</p>
+            <p><strong>Mensaje:</strong> {{ lastMessage.mensaje }}</p>
+          </div>
+        }
+      </ion-card-content>
+    </ion-card>
+  }
 </ion-content>

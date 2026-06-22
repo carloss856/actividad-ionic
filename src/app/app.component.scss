@@ -48,8 +48,42 @@ ion-item.selected {
   --color: #0f2740;
 }
 
+.menu-settings {
+  margin: auto 0 8px;
+}
+
 .theme-toggle {
-  margin: auto 12px 18px;
+  margin: 0 12px 4px;
+}
+
+.font-control ion-button {
+  --color: #16324a;
+  font-weight: 700;
+}
+
+.accent-control {
+  margin-bottom: 0;
+}
+
+.accent-swatches {
+  display: flex;
+  gap: 10px;
+  padding: 4px 16px 18px;
+}
+
+.accent-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.accent-dot.active {
+  border-color: #16324a;
+  transform: scale(1.15);
 }
 
 :host-context(.dark) ion-menu ion-content.menu-content {
@@ -70,4 +104,12 @@ ion-item.selected {
 
 :host-context(.dark) ion-item.selected {
   --background: rgba(255, 255, 255, 0.16);
+}
+
+:host-context(.dark) .font-control ion-button {
+  --color: #eaf4ff;
+}
+
+:host-context(.dark) .accent-dot.active {
+  border-color: #eaf4ff;
 }

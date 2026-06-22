@@ -17,11 +17,39 @@
             }
           </ion-list>
 
-          <ion-item lines="none" class="theme-toggle">
-            <ion-icon aria-hidden="true" slot="start" [ios]="darkMode ? 'moon-outline' : 'sunny-outline'" [md]="darkMode ? 'moon-sharp' : 'sunny-sharp'"></ion-icon>
-            <ion-label>Tema oscuro</ion-label>
-            <ion-toggle slot="end" [checked]="darkMode" (ionChange)="toggleDarkMode($event)"></ion-toggle>
-          </ion-item>
+          <div class="menu-settings">
+            <ion-item lines="none" class="theme-toggle">
+              <ion-icon aria-hidden="true" slot="start" [ios]="darkMode ? 'moon-outline' : 'sunny-outline'" [md]="darkMode ? 'moon-sharp' : 'sunny-sharp'"></ion-icon>
+              <ion-label>Tema oscuro</ion-label>
+              <ion-toggle slot="end" [checked]="darkMode" (ionChange)="toggleDarkMode($event)"></ion-toggle>
+            </ion-item>
+
+            <ion-item lines="none" class="font-control">
+              <ion-icon aria-hidden="true" slot="start" name="text-outline"></ion-icon>
+              <ion-label>Tamano de texto</ion-label>
+              <ion-buttons slot="end">
+                <ion-button (click)="decreaseFont()" title="Reducir texto">A-</ion-button>
+                <ion-button (click)="increaseFont()" title="Aumentar texto">A+</ion-button>
+              </ion-buttons>
+            </ion-item>
+
+            <ion-item lines="none" class="accent-control">
+              <ion-icon aria-hidden="true" slot="start" name="color-palette-outline"></ion-icon>
+              <ion-label>Color de acento</ion-label>
+            </ion-item>
+            <div class="accent-swatches">
+              @for (color of accentColors; track color.value) {
+                <button
+                  type="button"
+                  class="accent-dot"
+                  [class.active]="accent === color.value"
+                  [style.background]="color.value"
+                  [title]="color.name"
+                  (click)="setAccent(color.value)">
+                </button>
+              }
+            </div>
+          </div>
         </div>
       </ion-content>
     </ion-menu>
